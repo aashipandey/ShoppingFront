@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html"%>
+
+ <%@ page language="java" contentType="text/html"%>
 
 <%@include file="Main.jsp" %>
 
 <html>
-
 <head>
-  <meta charset="utf-8">
+<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -48,7 +48,9 @@ input[type=submit]:hover {
 <h3>Contact Form</h3>
 
 <div class="container">
+
   <form action="/shopping/action_page.php">
+
     <label for="fname">First Name</label>
     <input type="text" id="fname" name="firstname" placeholder="Your name..">
 
@@ -59,11 +61,9 @@ input[type=submit]:hover {
     <select id="country" name="country">
       <option value="australia">Australia</option>
       <option value="canada">Canada</option>
-      <option value="canada">India</option>
-      <option value="canada">United States</option>
-      <option value="canada">United Kingdom</option>
-      <option value="canada">China</option>
-      
+      <option value="usa">USA</option>
+       <option value="india">India</option>
+        <option value="china">China</option>
     </select>
 
     <label for="subject">Subject</label>
@@ -75,3 +75,4 @@ input[type=submit]:hover {
 
 </body>
 </html>
+

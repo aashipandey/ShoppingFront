@@ -1,0 +1,7 @@
+com\Shopping\shopping\controller\OrderController.class
+com\Shopping\shopping\controller\SupplierController.class
+com\Shopping\shopping\controller\UserDetailsController.class
+com\Shopping\shopping\controller\UserController.class
+com\Shopping\shopping\controller\CartController.class
+com\Shopping\shopping\controller\CategoryController.class
+com\Shopping\shopping\controller\ProductController.class

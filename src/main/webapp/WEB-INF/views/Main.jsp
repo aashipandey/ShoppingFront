@@ -18,19 +18,11 @@
     
     <c:if test="${session.Scope.loggedIn }">
     
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="index">Home</a></li>
-	<!-- <li><a href="index.jsp">Index</a></li> -->
-	
-	 <li><a href="Category">Manage Category</a></li>
-       <li><a href="Supplier">Manage Supplier</a></li>
-      <li><a href="Product">Manage Product</a></li>      
-    </ul>
-    
-    
+   
     
     <div class="nav navbar-nav navbar-right">
       <a href="#">${sessionScope.username}</a>
+     
     </div>
 </c:if>
   
@@ -40,13 +32,13 @@
 
 	
 	<!-- <li><a href="index.jsp">Index</a></li> -->
-		<security:authorize access="hasRole('ROLE_ADMIN')">
-	<li><a href="addpc">Add a Product</a></li>
+		 <security:authorize access="hasRole('ROLE_ADMIN')">
+	
 		</security:authorize>
 		<li class="active"><a href="index">Home</a></li>
 		<li><a href="/shopping/ContactUs">ContactUs</a></li>
-		<li><a href="/shopping/ProductPage">Product</a></li>
-		<li><a href="/shopping/AboutUs">AboutUs</a></li>
+		<!-- <li><a href="/shopping/ProductPage">Product</a></li> -->
+		<li><a href="/shopping/AboutUs ">AboutUs</a></li>
 		<li><a href="/shopping/Register">Register</a></li>
 		<li><a href="/shopping/Login">Login</a></li>
 		

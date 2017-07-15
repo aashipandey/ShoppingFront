@@ -1,6 +1,7 @@
 package com.Shopping.shopping.controller;
 
 import java.io.BufferedOutputStream;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.LinkedHashMap;
@@ -17,13 +18,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
-
 import com.Shopping.shoppingBackend.dao.CartDAO;
 import com.Shopping.shoppingBackend.dao.CategoryDAO;
 import com.Shopping.shoppingBackend.dao.ProductDAO;
 import com.Shopping.shoppingBackend.model.Cart;
-import com.Shopping.shoppingBackend.model.Category;
 import com.Shopping.shoppingBackend.model.Product;
 
 
@@ -38,8 +36,8 @@ public class CartController
 	@Autowired
 	ProductDAO productDAO;
 	
-	@RequestMapping(value="/addToCart/{prodid}")
-	public String addToCart(@PathVariable("prodid") int prodid,@RequestParam ("quantity") int quantity,HttpSession session,Model m)
+	@RequestMapping(value="/addToCart")
+	public String addToCart(@RequestParam("prodid") int prodid,@RequestParam ("quantity") int quantity,HttpSession session,Model m)
 	{
 		Cart cart=new Cart();
 		String username=(String)session.getAttribute("username");
@@ -62,8 +60,8 @@ public class CartController
 		return "Cart";
 	}
 	
-	@RequestMapping(value="/updatecartItem/{citemid}")
-	public String updateCartItem(@PathVariable("citemid")int citemid,@RequestParam ("quantity") int quantity,HttpSession session,Model m)
+	@RequestMapping(value="/updateCartItem")	
+	public String updateCartItem(@RequestParam("citemid")int citemid,@RequestParam ("quantity") int quantity,HttpSession session,Model m)
 	{
 		
 		Cart cart=cartDAO.getCartItem(citemid);
@@ -81,7 +79,7 @@ public class CartController
 		return "Cart";
 	}
 	
-	@RequestMapping(value="/deletecartItem/{citemid}")
+	/*@RequestMapping(value="/deletecartItem/{citemid}")
 	public String deleteCartItem(@PathVariable("citemid")int citemid,HttpSession session,Model m)
 	{
 		
@@ -95,5 +93,34 @@ public class CartController
 		m.addAttribute("cartitems",list);
 		
 		return "Cart";
+	}*/
+	
+	
+	
+	
+
+	@RequestMapping(value="/deleteCartItem" ,method=RequestMethod.GET)
+	public String deleteCartItem(@RequestParam("citemid") int citemid,HttpSession session,Model m)
+	{
+		Cart cart=cartDAO.getCartItem(citemid);
+		cartDAO.deleteCartItem(cart);
+		
+		String username=(String)session.getAttribute("username");
+
+		List<Cart> list=cartDAO.getCartItems(username);
+		m.addAttribute("cartitems",list);
+		
+		boolean flag=false;
+		m.addAttribute("flag",flag);
+		
+		return "Cart";
+		
 	}
+	
+	@RequestMapping("/OrderConfirmation")
+	public String showOrderConfirmation()
+	{
+		return "OrderConfirmation";
+	}
+	
 }

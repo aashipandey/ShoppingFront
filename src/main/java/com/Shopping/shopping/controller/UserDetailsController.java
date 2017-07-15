@@ -1,6 +1,7 @@
 package com.Shopping.shopping.controller;
 
 import java.util.LinkedHashMap;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,7 @@ public class UserDetailsController
 	{
 		System.out.println("---UserDetails Page Displaying-----");
 		List<UserDetails> list=userdetailsDAO.getUserDetailsDetails();
-		m.addAttribute("userdetail",list);
+		m.addAttribute("userdetails",list);
 		
 		boolean flag=false;
 		m.addAttribute("flag",flag);
@@ -44,11 +45,11 @@ public class UserDetailsController
 		System.out.println("---Add UserDetails started -----");
 		
 		userdetail.setRole("ROLE_USER");
-		//userdetail.setEnabled(true);
+		userdetail.setEnabled(true);
 		userdetailsDAO.insertUpdateUserDetails(userdetail);
 		/*
 		List<UserDetails> list=userdetailsDAO.getUserDetailsDetails();
-		m.addAttribute("userdetail",list);*/
+		m.addAttribute("userdetails",list);*/
 		
 		boolean flag=false;
 		m.addAttribute("flag",flag);
@@ -68,7 +69,7 @@ public class UserDetailsController
 		
 		
 		List<UserDetails> list=userdetailsDAO.getUserDetailsDetails();
-		m.addAttribute("userdetail",list);
+		m.addAttribute("userdetails",list);
 		
 		boolean flag=true;
 		m.addAttribute("flag",flag);
@@ -87,7 +88,7 @@ public class UserDetailsController
 		
 
 		List<UserDetails> list=userdetailsDAO.getUserDetailsDetails();
-		m.addAttribute("userdetail",list);
+		m.addAttribute("userdetails",list);
 		
 
 		boolean flag=false;

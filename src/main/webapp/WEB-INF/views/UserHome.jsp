@@ -4,8 +4,9 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 
-<%@include file="Main.jsp" %>
-<html>
+<%-- <%@include file="Main.jsp" %>
+ --%>
+ <html>
 <head>
   <title>User Home Page</title>
   <meta charset="utf-8">
@@ -16,13 +17,43 @@
 </head>
 <body>
 
+	<nav class="navbar navbar-inverse">
+	  <div id="container">
+<ul class="nav navbar-nav">
+
+	
+	
+		 <security:authorize access="hasRole('ROLE_ADMIN')">
+	
+		</security:authorize>
+		<li class="active"><a href="index">Home</a></li>
+		<li><a href="/shopping/ContactUs">ContactUs</a></li>
+		<li><a href="/shopping/AboutUs ">AboutUs</a></li>
+		<li><a href="/shopping/logout">Logout</a></li>
+		
+	</ul>
+	</div>
+	
+	
+
+
+
+
+
+
+
+</nav>
+
+
+
+
 	<div id="container">
 	
 	<div class="row">
 	
 	<div class="col-sm-6 col-md-3">
 	<c:forEach items="${prodlist}" var="product">
-	<a href="ProductDesc/${product.proddesc }" class="thumbnail">
+	<a href="ProductDesc?prodid=${product.prodid}" class="thumbnail">
 	<img src="<c:url value="/resources/images/${product.prodid}.jpg "/>"> 
 	</a>
 	<div class="caption">
@@ -35,5 +66,7 @@
 	</div>
 	</div>
 </div>
+
+
 </body>
 </html>

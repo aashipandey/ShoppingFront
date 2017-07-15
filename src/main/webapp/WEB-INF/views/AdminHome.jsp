@@ -3,7 +3,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="security"%>
 
-<%@include file="Main.jsp" %>
+<%-- <%@include file="Main.jsp" %> --%>
 
 
 <html>
@@ -17,12 +17,29 @@
 </head>
 
 <body>
+
+
+<nav class="navbar navbar-inverse">
+<div class="nav navbar-nav navbar-right">
+      <a href="#">${sessionScope.username}</a>
+     
+    </div>
 <ul class="nav navbar-nav">
-	<li class="active"><a href="AdminHome">Home</a></li>
+
+
+ 
+    
+
+<security:authorize access="hasRole('ROLE_ADMIN')">
+	
+		</security:authorize>
+
+	<li class="active"><a href="index">Home</a></li>
 	<li><a href="Category">Manage Category</a></li>
 	<li><a href="Supplier">Manage Supplier</a></li>
 	<li><a href="Product">Manage Product</a></li>
-	
+	<li><a href="/shopping/logout">Logout</a></li>
 </ul>
+</nav>
 </body>
 </html>

@@ -18,58 +18,45 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
-
 import com.Shopping.shoppingBackend.dao.CartDAO;
 import com.Shopping.shoppingBackend.dao.CategoryDAO;
 import com.Shopping.shoppingBackend.dao.ProductDAO;
+import com.Shopping.shoppingBackend.dao.ShippingDetailsDAO;
+import com.Shopping.shoppingBackend.dao.UserDetailsDAO;
 import com.Shopping.shoppingBackend.model.Cart;
-import com.Shopping.shoppingBackend.model.Category;
 import com.Shopping.shoppingBackend.model.Product;
-
-
-
+import com.Shopping.shoppingBackend.model.ShippingDetails;
+import com.Shopping.shoppingBackend.model.UserDetails;
 
 
 @Controller
-public class OrderController 
+public class ShippingController 
 {
 
 	@Autowired
-	CartDAO cartDAO;
+	ShippingDetailsDAO shippingdetailsDAO;
 	
-	@Autowired
-	ProductDAO productDAO;
-	
-	@RequestMapping("/Checkout")
-	public String orderConfirmation(HttpSession session,Model m)
+	@RequestMapping(value="/InsertShippingDetails",method=RequestMethod.POST)
+	public String insertShippingDetails(@ModelAttribute("shippingdetail") ShippingDetails shippingdetail,Model m)
 	{
-		String username=(String)session.getAttribute("username");
+		System.out.println("---Add ShippingDetails started -----");
 		
-		List<Cart> list=cartDAO.getCartItems(username);
-		int grandtotal=0;
 		
-		for(Cart cart:list)
-		{
-			grandtotal=grandtotal+(cart.getQuantity()*cart.getPrice());
-		}
 		
-		m.addAttribute("grandtotal",grandtotal);
-		session.setAttribute("grandtotal", grandtotal);
-		m.addAttribute("cartitems",list);
-
-		return "OrderConfirmation";
-	}
+		shippingdetailsDAO.insertShippingDetails(shippingdetail);
 	
-	@RequestMapping("/UserHome")
-	public String showUserHome(Model m)
-	{
-
-		List<Product> prodlist=productDAO.getProductDetails();
-		m.addAttribute("prodlist", prodlist);
 		
-		return "UserHome";
+		boolean flag=false;
+		m.addAttribute("flag",flag);
+		
+		System.out.println("---ShippingDetails Added -----");
+		
+		return "Thankyou";
 	}
 	
 	
+	
+	
+	
+
 }

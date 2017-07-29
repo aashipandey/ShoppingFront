@@ -42,7 +42,7 @@ public class CartController
 		Cart cart=new Cart();
 		String username=(String)session.getAttribute("username");
 		
-		cart.setCartid(1001);
+		cart.setCartid(username+cart.getCitemid());
 		cart.setProdid(prodid);
 		cart.setQuantity(quantity);
 		
@@ -66,6 +66,7 @@ public class CartController
 		
 		Cart cart=cartDAO.getCartItem(citemid);
 		
+		session.setAttribute("citemid", citemid);
 		//Validation with Product Stock
 		
 		cart.setQuantity(quantity);
@@ -109,6 +110,7 @@ public class CartController
 
 		List<Cart> list=cartDAO.getCartItems(username);
 		m.addAttribute("cartitems",list);
+		
 		
 		boolean flag=false;
 		m.addAttribute("flag",flag);

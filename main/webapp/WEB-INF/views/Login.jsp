@@ -9,18 +9,21 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
 <style>
+  
+  body {
+    background-color:black;
+}
+  
+  
+
+
 
 .btn btn-default {
-    color:green;
+    color:lightblue;
     width: 50%;
 }
- .login{
- 	background-color:#F4F9A3;
- 	height: 100%;
- 	width: 100%;
- }
+ 
  
  .table {
   border-collapse: separate;
@@ -43,28 +46,29 @@
 
 <form action="loginProcess" method="post">
 <input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }" class="form-control"/>
-<table align="center">
+<table align="center" cellspacing="30">
 	<thead >
-		<th colspan="2"  ><br/> <center style="font-size:30px; color:green">  Login </center><br/> </th>
+		<h1 colspan="2"  ><br/> <center style="font-size:60px; color:lightblue">  Login </center></h1>
 <br/> 
 	</thead>
 <br/> 
 	<tr >
 		<br/> 	
-	 <td color="black">Username  </td>
-		<td><input type="text" class="form-control" name="j_username"  required /> </td>
+	 <th style="color:lightyellow" height="50">Username   </th>
+	 
+		<td height="50"><input type="text" class="form-control" name="j_username"  required /> </td>
 	</tr>
 
 	<tr>
-		<td  color="black">Password  </td>
-		<td><input type="password" class="form-control" name="j_password" required /> </td>
+		<th  style="color:lightyellow" height="50">Password  </th>
+		<td height="50"><input type="password" class="form-control" name="j_password" required /> </td>
 	</tr>
 	
 	<tr>
 		<td colspan="2" color="black">
-		<br/>
+		<br/><br/>
 		<center>
-			<button type="submit" class="btn btn-success">SUBMIT</button>
+			<button type="submit" class="btn btn-info">SUBMIT</button>
 		</center>
 		
 		</td>

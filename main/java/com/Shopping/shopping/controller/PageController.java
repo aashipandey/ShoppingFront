@@ -3,6 +3,7 @@ package com.Shopping.shopping.controller;
 import java.util.List;
 
 
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.Shopping.shoppingBackend.dao.CartDAO;
 import com.Shopping.shoppingBackend.dao.PaymentDAO;
@@ -30,8 +32,8 @@ public class PageController
 	@Autowired 
 	CartDAO cartDAO;
 	
-	/*@Autowired 
-	PaymentDAO paymentDAO;*/
+	@Autowired 
+	PaymentDAO paymentDAO;
 	
 	@RequestMapping(value={("/"),("index")} )
 	public String showIndex()
@@ -97,10 +99,14 @@ public class PageController
 		}
 	}
 	
+	@RequestMapping("/Thankyou")
+	public String showThankyou()
+	{
+		return "Thankyou";
+	}
 	
 	
-	/*
-	@RequestMapping(value="/Payment/{citemid}")
+	@RequestMapping(value="/Payment")
 	public String showPayment(@RequestParam("citemid") int citemid,Model m)
 	{
 		Cart cart=cartDAO.getCartItem(citemid);
@@ -109,10 +115,11 @@ public class PageController
 		return "Payment";
 	}
 	
-	@RequestMapping(value="/Payment/{citemid}",method=RequestMethod.POST)
-	public String showPaymentcard(@RequestParam("citemid") int citemid,@RequestParam("ptype")  String ptype,Model m,HttpSession session,@RequestParam("cardnumber")int cardnumber)
+	@RequestMapping(value="/Payment",method=RequestMethod.POST)
+	public ModelAndView showPaymentcard(@RequestParam("citemid") int citemid,@RequestParam("ptype")  String ptype,Model m,HttpSession session,@RequestParam("cardnumber")int cardnumber)
 	{
 		Cart cart=cartDAO.getCartItem(citemid);
+		System.out.println(4);
 		m.addAttribute("cart",cart);
 		Payment obj=new Payment();
 		if(ptype.equals("card"))
@@ -126,12 +133,18 @@ public class PageController
 		}
 	    obj.setCartid(cart.getCartid());
 	    
-	    float gtotal=Float.parseFloat(session.getAttribute("gtotal").toString());
-  obj.setPrice((int)gtotal);
+	    float grandtotal=Float.parseFloat(session.getAttribute("grandtotal").toString());
+  obj.setPrice((int)grandtotal);
   paymentDAO.insertPayment(obj);
-  
-	    return "PaySuccess";
+
+System.out.println(3);
+	    return new ModelAndView("Shipping");
 	}
-	*/
+	
+	@RequestMapping("/Shipping")
+	public String showShipping()
+	{
+		return "Shipping";
+	}
 
 }

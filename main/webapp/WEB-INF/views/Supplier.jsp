@@ -11,6 +11,14 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <title>Supplier</title>
   </head>
+  
+  <style>
+ body {
+    background-color: lightyellow;
+}
+  
+  
+    </style> 
   <body>
   
   
@@ -18,11 +26,11 @@
   <nav class="navbar navbar-inverse">
 <ul class="nav navbar-nav">
 
-	<li class="active"><a href="index">Home</a></li>
-	<li><a href="Category">Manage Category</a></li>
-	<li><a href="Supplier">Manage Supplier</a></li>
-	<li><a href="Product">Manage Product</a></li>
-	<li><a href="/shopping/logout">Logout</a></li>
+	<!-- <li class="active"><a href="index" style="color:lightpink">Home</a></li> -->
+	<li><a href="Category" style="color:lightpink">Manage Category</a></li>
+	<li><a href="Supplier" style="color:lightpink">Manage Supplier</a></li>
+	<li><a href="Product" style="color:lightpink">Manage Product</a></li>
+	<li><a href="/shopping/logout" style="color:lightpink">Logout</a></li>
 </ul>
 </nav>
   
@@ -41,77 +49,77 @@
 </c:if>
 
 
-<table align="center" cellspacing="2">
+<table align="center" cellspacing="2" width="700">
 	<tr>
-		<td colspan="2">Supplier Details</td>
+		<h2 colspan="2"><center>Supplier Details</center></h2>
 		<c:if test="${flag}">
-		<input type="text" name="Suppid" value="${supplier.suppid }"/>
+		<input type="text" name="Suppid" value="${supplier.suppid }" />
 		</c:if>
-	</tr>
+	</tr><br>
 	<tr>
-	<td>Supplier Id</td>
+	<td height="30">Supplier Id</td>
 	
 	<c:if test="${flag}">
-		<td><input type="text" name="suppid" value="${supplier.suppid }"/></td>
+		<td><input type="text" name="suppid" value="${supplier.suppid }" /></td>
 		</c:if>
 		
 		
 		<c:if test="${!flag}">
-		<td><input type="text" name="suppid"/></td>
+		<td><input type="text" name="suppid" required/></td>
 		</c:if>
 		
 	</tr>
 	<tr>
-	<td>Supplier Name</td>
+	<td height="30">Supplier Name</td>
 	
 	<c:if test="${flag}">
-		<td><input type="text" name="suppname" value="${supplier.suppname }"/></td>
+		<td><input type="text" name="suppname" value="${supplier.suppname }" /></td>
 		</c:if>
 		
 		
 		<c:if test="${!flag}">
-		<td><input type="text" name="suppname"/></td>
+		<td><input type="text" name="suppname" required/></td>
 		</c:if>
 
 	</tr>
 	<tr>
-	<td>Address</td>
+	<td height="30">Address</td>
 	<c:if test="${flag}">
-		<td><input type="text" name="address" value="${supplier.address}"/></td>
+		<td><input type="text" name="address" value="${supplier.address}" /></td>
 		</c:if>
 		<c:if test="${!flag}">
-		<td><input type="text" name="address"/></td>
+		<td><input type="text" name="address" required/></td>
 		</c:if>
 	</tr>
 	
 	<tr>
-	<td colspan="2">
-		<input type="submit" value="AddSupplier"/>
+	<td colspan="2"><br>
+		<center><input type="submit" value="AddSupplier" class="btn btn-info" required/></center>
 	</td>
 	</tr>
 </table>
 </form>
 <!-- Supplier Form Completed -->
 
-
+<br><br>
 <!-- -- Displaying the Supplier data using Table -->
-<table cellspacing="2" align="center" border="1">
-<tr bgcolor="pink">
-	<td>Supplier Id</td>
-	<td>Supplier Name</td>
-	<td>Address</td>
+<table cellspacing="2" align="center" border="1" width="700">
+<tr bgcolor="lightblue">
+	<th height="40">Supplier Id</th>
+	<th height="40">Supplier Name</th>
+	<th height="40">Address</th>
 	
-	<td>Operation</td>
+	<th height="40">Operation</th>
 	
 </tr>
 <c:forEach items="${suppdetail }" var="supplier">
-	<tr bgcolor="cyan">
-	<td>${supplier.suppid }</td>
-	<td>${supplier.suppname }</td>
-	<td>${supplier.address }</td>
+	<tr>
+	<td height="30">${supplier.suppid }</td>
+	<td height="30">${supplier.suppname }</td>
+	<td height="30">${supplier.address }</td>
 	
 	
-	<td><a href="<c:url value='deleteSupplier?suppid=${supplier.suppid}'/>">Delete</a>
+	<td height="30"><a href="<c:url value='deleteSupplier?suppid=${supplier.suppid}'/>">Delete</a>
 	<a href="<c:url value='updateSupplier?suppid=${supplier.suppid}'/>">Update</a>
 	</td>
 	</tr>

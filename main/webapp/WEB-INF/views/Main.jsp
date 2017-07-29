@@ -13,7 +13,7 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Shopping Wizard</a>
+      <a class="navbar-brand" href="#" style="color:lightpink">Shopping Wizard</a>
     </div>
     
     <c:if test="${session.Scope.loggedIn }">
@@ -35,12 +35,12 @@
 		 <security:authorize access="hasRole('ROLE_ADMIN')">
 	
 		</security:authorize>
-		<li class="active"><a href="index">Home</a></li>
-		<li><a href="/shopping/ContactUs">ContactUs</a></li>
+		<li class="active"><a href="index" style="color:lightpink">Home</a></li>
+		<li><a href="/shopping/ContactUs" style="color:lightpink">ContactUs</a></li>
 		<!-- <li><a href="/shopping/ProductPage">Product</a></li> -->
-		<li><a href="/shopping/AboutUs ">AboutUs</a></li>
-		<li><a href="/shopping/Register">Register</a></li>
-		<li><a href="/shopping/Login">Login</a></li>
+		<li><a href="/shopping/AboutUs " style="color:lightpink">AboutUs</a></li>
+		<li><a href="/shopping/Register" style="color:lightpink">Register</a></li>
+		<li><a href="/shopping/Login" style="color:lightpink">Login</a></li>
 		
 	</ul>
 	

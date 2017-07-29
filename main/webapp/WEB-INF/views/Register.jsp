@@ -11,9 +11,15 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <style>
+  
+  body {
+    background-color:black;
+}
+  
+  
 /* Full-width input fields */
 input[type=text], input[type=password] {
-    width: 100%;
+    width: 30%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
@@ -56,39 +62,35 @@ button {
     display: table;
 }
 
-/* Change styles for cancel button and signup button on extra small screens */
-@media screen and (max-width: 300px) {
-    .cancelbtn, .signupbtn {
-       width: 50%;
-    }
+
 }
 </style>
 </head>
 <body>
 
-<h2>Signup Form</h2>
+<h2 style="color:lightyellow"><center>Signup Form</center></h2>
 
 <form action="/shopping/InsertUserDetails" style="border:1px solid #ccc" method="post">
   <div class="container">
-
-     <label><b> User Name</b></label>
-     <input type="text" placeholder="Name" name="username" required>
+<center>
+     <label style="color:lightblue"><b> User Name</b></label><br>
+     <input type="text" placeholder="Name" name="username" required><br>
      
-     <label><b>Full name</b></label>
-    <input type="text" placeholder="custname" name="custname" required>
+     <label style="color:lightblue"><b>Full name</b></label><br>
+    <input type="text" placeholder="custname" name="custname" required><br>
      
-    <label><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="email" required>
+    <label style="color:lightblue"><b>Email</b></label><br>
+    <input type="text" placeholder="Enter Email" name="email" required><br>
 
- <label><b>Contact Number</b></label>
-     <input type="text" placeholder="Mobile Number" name="mobile" required>
+ <label style="color:lightblue"><b>Contact Number</b></label><br>
+     <input type="text" placeholder="Mobile Number" name="mobile" required><br>
 
-     <label><b>Address</b></label>
-     <input type="text" placeholder="Address" name="address" required>
+     <label style="color:lightblue"><b>Address</b></label><br>
+     <input type="text" placeholder="Address" name="address" required><br>
 
 
-    <label><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="password" required>
+    <label style="color:lightblue"><b>Password</b></label><br>
+    <input type="password" placeholder="Enter Password" name="password" required><br>
 
  <!--    <label><b>Repeat Password</b></label>
     <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
@@ -98,13 +100,15 @@ button {
     <input type="text" placeholder="role" name="role" required> -->
 
 
-    <input type="checkbox" checked="checked"> Remember me
-    <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+<!--     <input type="checkbox" checked="checked" ><font-color="white"> Remember me</font> -->
+    <p style="color:white">By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
 
-    
+    </center>
     <div class="clearfix">
-      <button type="button" class="cancelbtn">Cancel</button>
-      <button type="submit" class="signupbtn">Sign Up</button>
+      <center>
+      <button type="submit" class="btn btn-info">Sign Up</button>
+      <button type="button" class="btn btn-info">Cancel</button>
+      </center>
     </div>
   </div>
 </form>

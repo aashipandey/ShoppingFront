@@ -11,6 +11,15 @@
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
    <title>Category</title>
+   
+   <style>
+  
+  body {
+    background-color: lightyellow;
+}
+  
+  
+    </style> 
 </head>
 <body>
 
@@ -20,11 +29,11 @@
 <nav class="navbar navbar-inverse">
 <ul class="nav navbar-nav">
 
-	<li class="active"><a href="index">Home</a></li>
-	<li><a href="Category">Manage Category</a></li>
-	<li><a href="Supplier">Manage Supplier</a></li>
-	<li><a href="Product">Manage Product</a></li>
-	<li><a href="/shopping/logout">Logout</a></li>
+	<!-- <li class="active"><a href="index" style="color:lightpink">Home</a></li> -->
+	<li><a href="Category" style="color:lightpink">Manage Category</a></li>
+	<li><a href="Supplier" style="color:lightpink">Manage Supplier</a></li>
+	<li><a href="Product" style="color:lightpink">Manage Product</a></li>
+	<li><a href="/shopping/logout" style="color:lightpink">Logout</a></li>
 </ul>
 </nav>
 
@@ -39,54 +48,61 @@
 <c:if test="${!flag}">
 <form action="AddCategory" method="post">
 </c:if>
-
-	<table align="center" cellspacing="2">
+<br>
+	<table align="center" cellspacing="2" width="700">
+	<thead>
 		<tr>
-			<td colspan="2">Category Details</td>
+			<h3 colspan="2" height="30">
+			<center>Category Details</center></h3>
 			<c:if test="${flag}">
-			<input type="text" name="catid" value="${category.catid}"/>
+			<input type="text" name="catid" value="${category.catid} " />
 			</c:if>
 		</tr>
+		</thead><br><br>
 		<tr>
-			<td>Category Name</td>
+			<td height="30">Category Name</td>
 			<c:if test="${flag}">
-				<td><input type="text" name="catname" value="${category.catname}" /></td>
+				<td height="30"><input type="text" name="catname" value="${category.catname}" /></td>
 			</c:if>
 			<c:if test="${!flag}">
-				<td><input type="text" name="catname" /></td>
+				<td height="30"><input type="text" name="catname" required /></td>
 			</c:if>
 		</tr>
 		<tr>
-			<td>Category Description</td>
+			<td height="30">Category Description</td>
 			<c:if test="${flag}">
-				<td><input type="text" name="catdesc" value="${category.catdesc}" /></td>
+				<td height="30"><input type="text" name="catdesc" value="${category.catdesc}" /></td>
 			</c:if>
 			<c:if test="${!flag}">
-			<td><input type="text" name="catdesc" /></td>
+			<td height="30"><input type="text" name="catdesc" required/></td>
 			</c:if>
 		</tr>
 		<tr>
-			<td colspan="2"><input type="submit" value="AddCategory" /></td>
+			<td colspan="2"><br><br>
+			<center>
+			<input type="submit" value="AddCategory" class="btn btn-info"/></td>
+			</center>
 		</tr>
 	</table>
 </form>
 <!-- Category Form Completed -->
 
 <!-- Displaying the Category data using Table -->
-<table cellspacing="2" align="center" border="1">
-
-	<tr bgcolor="pink">
-		<td>Category ID</td>
-		<td>Category Name</td>
-		<td>Category Desc</td>
-		<td>Operation</td>
+<table cellspacing="2" align="center" border="1" width="700">
+<thead>
+	<tr bgcolor="lightblue">
+		<th height="40">Category ID</th>
+		<th>Category Name</th>
+		<th>Category Desc</th>
+		<th>Operation</td>
 	</tr>
+</thead>
 	<c:forEach items="${catdetail}" var="category">
-		<tr bgcolor="cyan">
-			<td>${category.catid}</td>
-			<td>${category.catname}</td>
-			<td>${category.catdesc}</td>
-			<td><a href="<c:url value='deleteCategory?catid=${category.catid}'/>">Delete</a>
+		<tr>
+			<td height="30">${category.catid}</td>
+			<td height="30">${category.catname}</td>
+			<td height="30">${category.catdesc}</td>
+			<td height="30"><a href="<c:url value='deleteCategory?catid=${category.catid}'/>">Delete</a>
 				
 				<a href="<c:url value='updateCategory?catid=${category.catid}'/>">Update</a>
 			</td>

@@ -2,14 +2,56 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 
-<%@include file="Main.jsp" %>
+<%-- <%@include file="Main.jsp" %> --%>
 
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <title>Product Page</title>
+
+<style>
+  
+  body {
+    background-color:black;
+}
+	</style>
+
 </head>
 <body>
+
+	<nav class="navbar navbar-inverse">
+	  <div id="container">
+<ul class="nav navbar-nav">
+
+	
+	
+		 <security:authorize access="hasRole('ROLE_ADMIN')">
+	
+		</security:authorize>
+		<!-- <li class="active"><a href="index" style="color:lightpink">Home</a></li>
+		<li><a href="/shopping/ContactUs" style="color:lightpink">ContactUs</a></li> -->
+		<li><a href="/shopping/ProductPage" style="color:lightpink">Products</a></li>
+		<!-- <li><a href="/shopping/AboutUs " style="color:lightpink">AboutUs</a></li> -->
+		<li><a href="/shopping/logout" style="color:lightpink">Logout</a></li>
+		
+	</ul>
+	</div>
+	
+	
+
+
+
+
+
+
+
+</nav>
+
 
 	<div id="container">
 	
@@ -17,13 +59,13 @@
 	
 	<div class="col-sm-6 col-md-3">
 	<c:forEach items="${prodlist}" var="product">
-	<a href="ProductDesc/${product.prodid }" class="thumbnail">
+	<a href="ProductDesc?prodid=${product.prodid}" class="thumbnail">
 	<img src="<c:url value="/resources/images/${product.prodid}.jpg "/>"> 
 	</a>
 	<div class="caption">
 	
-		<h4>${product.prodname }</h4>
-		<p> ${product.price }</p>
+		<h4 style="color:lightyellow">${product.prodname }</h4>
+		<p style="color:lightyellow"> ${product.price }</p>
 		
 	</div>
 	</c:forEach>

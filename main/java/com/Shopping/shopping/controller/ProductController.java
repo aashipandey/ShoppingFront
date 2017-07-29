@@ -101,7 +101,7 @@ public class ProductController
 		}
 		
 		m.addAttribute("flag",true);
-		return "Product";
+		return "redirect:Product";
 	}
 	
 	/*@RequestMapping(value="/updateProduct/{prodid}")
@@ -123,7 +123,9 @@ public class ProductController
 	@RequestMapping(value="/updateProduct" ,method=RequestMethod.GET)
 	public String updateProduct(@RequestParam("prodid") int prodid,Model m)
 	{
+		System.out.println("id is "+prodid);
 		Product product=productDAO.getProduct(prodid);
+		System.out.println(product.getProdid());
 		m.addAttribute("product",product);
 		
 		m.addAttribute("catlist",this.getCatList());

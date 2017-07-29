@@ -14,6 +14,14 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<style>
+  
+  body {
+    background-color:black;
+}
+	</style>
+
 </head>
 <body>
 
@@ -26,10 +34,11 @@
 		 <security:authorize access="hasRole('ROLE_ADMIN')">
 	
 		</security:authorize>
-		<li class="active"><a href="index">Home</a></li>
-		<li><a href="/shopping/ContactUs">ContactUs</a></li>
-		<li><a href="/shopping/AboutUs ">AboutUs</a></li>
-		<li><a href="/shopping/logout">Logout</a></li>
+		<!-- <li class="active"><a href="index" style="color:lightpink">Home</a></li>
+		<li><a href="/shopping/ContactUs" style="color:lightpink">ContactUs</a></li> -->
+		<li><a href="/shopping/ProductPage" style="color:lightpink">Products</a></li>
+		<!-- <li><a href="/shopping/AboutUs " style="color:lightpink">AboutUs</a></li> -->
+		<li><a href="/shopping/logout" style="color:lightpink">Logout</a></li>
 		
 	</ul>
 	</div>
@@ -58,8 +67,8 @@
 	</a>
 	<div class="caption">
 	
-		<h4>${product.prodname }</h4>
-		<p> ${product.price }</p>
+		<h4 style="color:lightyellow">${product.prodname }</h4>
+		<p style="color:lightyellow"> ${product.price }</p>
 		
 	</div>
 	</c:forEach>

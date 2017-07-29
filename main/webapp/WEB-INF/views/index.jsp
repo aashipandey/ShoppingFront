@@ -14,6 +14,12 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   
+  <style>
+  	 body {
+    background-color:black;
+}
+  
+  </style>
 </head>
 <body>
  <security:authorize access="hasRole('ROLE_ADMIN')"></security:authorize> 
@@ -42,7 +48,7 @@
         <img src="resources/images/3.jpeg" alt="Footwears" style="width:100%;">
       </div>
 <div class="item">
-        <img src="resources/images/4.jpg" alt="Bags" style="width:100%;">
+        <img src="resources/images/elec.jpg" alt="Electronics" style="width:100%;">
       </div>
     </div>
 
